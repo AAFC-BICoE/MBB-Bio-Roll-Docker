@@ -20,8 +20,11 @@ RUN export uid=1000 gid=1000 && \
 
 USER developer
 ENV HOME /home/developer
+
+# This does not seem to help; must set explicitly with '-e ...'
+ENV SHELL /bin/bash
 CMD /usr/bin/grass
 
 # To run:
-#  $ docker run -ti --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix IMAGE_HASH
+#  $ docker run -ti --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -e SHELL=/bin/bash IMAGE_HASH
 #
